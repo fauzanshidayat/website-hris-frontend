@@ -18,35 +18,47 @@
                         </button>
                     </div>
 
-                    <!-- Daily Use -->
+                   <!-- Daily Use -->
                     <div class="flex flex-col gap-4">
-                        <div class="text-sm text-gray-500 uppercase tracking-wide">Daily Use</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wide">Daily Use</div>
 
-                        <NuxtLink to="/"
-                            class="flex items-center gap-3 px-3 py-2 rounded-md bg-gray-100 text-gray-900 font-medium">
-                            <img src="../assets/svgs/ic-grid.svg" alt="Overview" class="w-5 h-5">
-                            Overview
-                        </NuxtLink>
-                        
+                    <!-- Overview -->
+                    <NuxtLink
+                        :to="{ name: 'companies-id'}"
+                        class="flex items-center gap-3 px-3 py-2 rounded-md bg-gray-100 text-gray-900 font-medium"
+                    >
+                        <img src="../assets/svgs/ic-grid.svg" alt="Overview" class="w-5 h-5">
+                        Overview
+                    </NuxtLink>
 
-                        <NuxtLink to="/employees"
-                            class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition">
-                            <img src="../assets/svgs/ic-users.svg" alt="Employees" class="w-5 h-5">
-                            Employees
-                         </NuxtLink>
+                    <!-- Employees -->
+                    <NuxtLink
+                        :to="{ name: 'companies-id-employees' }"
+                        class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition"
+                    >
+                        <img src="../assets/svgs/ic-users.svg" alt="Employees" class="w-5 h-5">
+                        Employees
+                    </NuxtLink>
 
-                        <NuxtLink to="/teams"
-                            class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition">
-                            <img src="../assets/svgs/ic-briefcase.svg" alt="My Teams" class="w-5 h-5">
-                            My Teams
-                        </NuxtLink>
+                    <!-- My Teams -->
+                    <NuxtLink
+                        :to="{ name: 'companies-id-teams'}"
+                        class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition"
+                    >
+                        <img src="../assets/svgs/ic-briefcase.svg" alt="My Teams" class="w-5 h-5">
+                        My Teams
+                    </NuxtLink>
 
-                        <NuxtLink to="/roles"
-                            class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition">
-                            <img src="../assets/svgs/ic-flag.svg" alt="Roles" class="w-5 h-5">
-                            Roles
-                        </NuxtLink>
+                    <!-- Roles -->
+                    <NuxtLink
+                        :to="{ name: 'companies-id-roles' }"
+                        class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition"
+                    >
+                        <img src="../assets/svgs/ic-flag.svg" alt="Roles" class="w-5 h-5">
+                        Roles
+                    </NuxtLink>
                     </div>
+
 
                     <!-- Others -->
                     <div class="flex flex-col gap-4">
