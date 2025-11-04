@@ -42,3 +42,9 @@
     </div>
   </section>
 </template>
+
+<script setup>
+definePageMeta({
+    middleware: ['sanctum:auth'],
+});
+</script>
