@@ -1,8 +1,4 @@
-<script setup>
-definePageMeta({
-  layout: 'dashboard'
-})
-</script>
+
 <template>
   <div>
     <!-- Main Content -->
@@ -41,7 +37,7 @@ definePageMeta({
                 </form>
 
                 <a href="#" class="relative flex-none w-[46px] h-[46px] bg-white rounded-full p-[11px] shadow-sm hover:shadow transition">
-                    <img src="../assets/svgs/ic-bell.svg" alt="Notification" class="w-full h-full object-contain">
+                    <img src="/assets/svgs/ic-bell.svg" alt="Notification" class="w-full h-full object-contain">
                     <!-- Notification Dot -->
                     <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
                 </a>
@@ -152,6 +148,13 @@ definePageMeta({
     </div>
   </div>
 </template>
+
+<script setup>
+definePageMeta({
+  layout: 'dashboard',
+  middleware: ['sanctum:auth'],
+});
+</script>
 
 
 

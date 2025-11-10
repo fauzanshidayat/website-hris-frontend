@@ -56,13 +56,21 @@
       >
         Continue
       </button>
+      <p class="mt-4 text-center text-gray-500">
+        Sudah Punya Akun
+      <NuxtLink to="/login" class="text-blue-600 hover:underline">Login di sini</NuxtLink>
+      </p>
     </form>
   </section>
 </template>
 
 <script setup>
+definePageMeta({
+    middleware: ['sanctum:guest'],
+});
 import { reactive } from 'vue';
 import { navigateTo } from '#imports';
+import { useCsrfFetch } from '~/composables/useCsrfFetch'; // path sesuai projectmu
 
 const form = reactive({
   name: '',
@@ -73,32 +81,11 @@ const form = reactive({
 
 const handleRegister = async () => {
   try {
-    console.log('Mengambil CSRF cookie...');
-    // Ambil CSRF cookie dari Laravel
-    await $fetch('http://localhost:8000/sanctum/csrf-cookie', {
-      method: 'GET',
-      credentials: 'include'
-    });
-
     console.log('Mengirim data register...');
-    
-    // Ambil XSRF token dari cookie
-    const xsrfToken = decodeURIComponent(
-      document.cookie
-        .split(';')
-        .find(row => row.startsWith('XSRF-TOKEN='))
-        ?.split('=')[1] || ''
-    );
 
-    const res = await $fetch('http://localhost:8000/register', {
+    const res = await useCsrfFetch('http://localhost:8000/register', {
       method: 'POST',
-      body: form,
-      credentials: 'include',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-XSRF-TOKEN': xsrfToken
-      }
+      body: form
     });
 
     console.log('Register berhasil, token diterima:', res.access_token);
@@ -108,7 +95,6 @@ const handleRegister = async () => {
 
     // Redirect ke halaman dashboard/home
     navigateTo('/');
-
   } catch (err) {
     console.error('Register gagal:', err);
 
@@ -124,6 +110,5 @@ const handleRegister = async () => {
   }
 };
 </script>
-
 
 

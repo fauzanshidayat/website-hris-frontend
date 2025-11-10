@@ -38,6 +38,10 @@
       >
         Sign In
       </button>
+      <p class="mt-4 text-center text-gray-500">
+        Belum punya akun? 
+      <NuxtLink to="/register" class="text-blue-600 hover:underline">Daftar di sini</NuxtLink>
+      </p>
     </form>
   </section>
 </template>
